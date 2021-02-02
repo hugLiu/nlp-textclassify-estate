@@ -11,6 +11,8 @@ def set_seed(seed):
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
+    # 提升训练速度，训练结果保持一致
+    torch.backends.cudnn.benchmark = True
 
 def search_f1_auc(y_true, y_score):
     """
